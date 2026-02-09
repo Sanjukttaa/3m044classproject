@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            min-height: 100vh;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            min-height: 100vh;
+        }
+        nav{
+            padding: 10px;
+            text-align: center;
+            grid-column: span 3;
+            background-color: black;
+        }
+        nav a{
+            color: white;
+            margin: 11px;
+        }
+        video{
+            grid-column: span 2;
+            /* border: 1px double rgb(11, 75, 135); */
+        }
+        .descrip{
+            border: 3px dotted rgba(214, 91, 132, 0.886);
+            text-align: center;
+            padding: 20px;
+        }
+        .address{
+            grid-column: span 2;
+            border: 3px double red;
+            text-align: center;
+            padding: 20px;
+        }
+        .imp-points{
+            /* grid-column: span 2; */
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px;
+        }
+        footer{
+            grid-column:span 3;
+            background-color: forestgreen;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Email</a>
+    </nav>
+    <figure>
+    <img src="cat.jpg" height="200px" width="200px">
+    <figcaption>Cat</figcaption>
+    </figure>
+
+    <figure>
+    <img src="moon.jpg" height="200px" width="200px">
+    <figcaption>Moon</figcaption>
+    </figure>
+
+    <figure>
+    <img src="cat1.jpg" height="200px" width="300px">
+    <figcaption>Cat</figcaption>
+    </figure>
+
+    <video controls width="300" height="200" poster="">
+        <source src="" type="video/mp4">
+    </video>
+
+    <div class="descrip">
+        Description
+    </div>
+
+    <div class="address">
+        Address
+    </div>
+
+    <div class="imp-points">
+        imp points
+    </div>
+    <footer>
+        Footer sec
+    </footer>
+    </div>
+</body>
+</html>
