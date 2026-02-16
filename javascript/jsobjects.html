@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let laptop={
+        //     brand:"ASUS",
+        //     color:"Silver",
+        //     ram:"16gb"
+        // }
+        // console.log(laptop);
+        // console.log(laptop.color);
+        // console.log(laptop["color"]);
+        // console.log("I have "+laptop.brand+" laptop of "+laptop.color+" and its RAM is "+laptop.ram)
+        // console.log(`I have ${laptop.brand} laptop of ${laptop.color} color and its RAM is ${laptop.ram}`)
+
+        let student = new Object();
+        student.name = "Sanjukta";
+        student.marks = 90;
+        console.log(student["name"]);
+
+        function laptop1(color1, brand1){
+            this.color1 = color1;
+            this.brand1 = brand1;
+        }
+        let device1 = new laptop1("silver","ASUS");
+        console.log(device1.color1, device1.brand1);
+        let device2 = new laptop1("black","HP");
+        console.log(device2.color1, device2.brand1);
+
+        function avg(sum1,sum2,sum3){
+            this.sum1 = sum1;
+            this.sum2 = sum2;
+            this.sum3 = sum3;
+            
+            console.log((sum1+sum2+sum3)/3);
+        }
+        let total1 = new avg(2,5,6);
+        let total2 = new avg(2,5,6);
+
+    </script>
+</body>
+</html>
