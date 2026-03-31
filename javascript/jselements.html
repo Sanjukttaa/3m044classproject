@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="para" id="p1">P1</p>
+    <p class="para" id="p2">P2</p>
+    <p class="para" id="p3">P3</p>
+    <p class="para" id="p4">P4</p>
+    <button onclick="eventer()">click</button>
+    <script>
+        // document.getElementById("p2").innerHTML="<h2>Front End</h2>"
+        // document.getElementById("p2").innerText="<h2>Front End</h2>"
+
+        function eventer(){
+        document.getElementById("p2").innerHTML="<h2>Front End</h2>";
+        }
+        // let elts = document.getElementsByClassName("para");
+        // for(let i=0;i<elts.length;i++){
+        //     elts[i].innerHTML="<h2>Change Class</h2>";
+        // }
+        
+        let elts = document.getElementsByClassName("p");
+        for(let i=0;i<elts.length;i++){
+            elts[i].innerHTML="<h2>Change Class</h2>";
+        }
+
+        document.querySelector("#p3").innerHTML="<h3>Selector</h3>"
+        document.querySelector(".para").innerHTML="<h3>Selector</h3>"
+    </script>
+</body>
+</html>

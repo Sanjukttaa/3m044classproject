@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!-- 0k -->
+        <h1 id="head1">This is heading1 inside div</h1>
+        <h2 id="head2">This is heading2 inside div</h2>
+        <p id="para1">This is para1 inside div</p>
+        <p id="para2">This is para2 inside div</p>
+        <ul id="list1">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <script>
+        let para1=document.getElementById("para1");
+        console.log(para1.parentElement);
+        let ul=document.getElementById("list1");
+        console.log(ul.parentElement);
+
+        let box1=document.getElementById("box");
+        console.log(box1.children);
+        console.log(box1.firstElementChild);
+        console.log(box1.lastElementChild);
+
+        console.log(para1.previousElementSibling)
+        console.log(para1.nextElementSibling)
+
+        console.log(box1.childNodes)
+        console.log(box1.children)
+
+        console.log(para1.firstchild);
+
+        // para1.onclick=function(){
+        //     para2.style.color="pink";
+        // }
+        
+    </script>
+</body>
+</html>
+
+<!-- first child = nodelist -->
+<!-- firstElementchild = elementlist -->

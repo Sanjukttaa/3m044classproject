@@ -1,0 +1,37 @@
+<!-- An object from which other objects inheritecs properties and methods -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student1={
+            name:"Harsh",
+            age:19
+        }
+        let student2= Object.create(student1);
+        console.log(student1);
+        console.log(student2);
+
+        let first={
+            a1:"I am in first object"
+        }
+        let second={
+            a2:"I am in second object",
+            __proto__:first
+        }
+        let third={
+            a3:"I am in third object",
+            __proto__:first
+        }
+
+        console.log(first);
+        console.log(second);
+        console.log(third);
+        console.log(first.__proto__);
+    </script>
+</body>
+</html>

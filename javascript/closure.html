@@ -1,0 +1,67 @@
+<!-- An inner function remembers variable from its outer function even after the outer function finishes executing -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+<button id="red">Red</button>
+<button id="blue">Blue</button>
+<button id="pink">Pink</button>
+<button id="green">Green</button>
+<script>
+
+// document.getElementById("red").onclick=function(){
+//     document.body.style.backgroundColor="red";
+// }
+// document.getElementById("blue").onclick=function(){
+//     document.body.style.backgroundColor="blue";
+// }
+function changeColor(color){
+    function inner(){
+        document.body.style.backgroundColor= `${color}`;
+    }
+    return inner;
+}
+document.getElementById("red").onclick=changeColor("red");
+document.getElementById("pink").onclick=changeColor("pink");
+document.getElementById("green").onclick=changeColor("green");
+document.getElementById("blue").onclick=changeColor("blue");
+
+// closure example 
+function outer(){
+    let name = "Raj";
+
+    function inner(){
+        console.log(name);
+    }
+
+    return inner;
+}
+
+let c = outer();
+c();
+
+
+// closure example 2
+function count(){
+    let c = 0;
+
+    function innercount(){
+        c++;
+        console.log(c);
+    }
+
+    return innercount;
+}
+
+let d = count();
+d();
+
+</script>
+
+</body>
+</html>

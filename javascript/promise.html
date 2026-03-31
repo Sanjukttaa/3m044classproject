@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="step1">Order Placed</h1>
+<button id="btn1">Start Delivery</button>
+
+<script>
+
+let step1 = document.getElementById("step1");
+let button1 = document.getElementById("btn1");
+
+button1.addEventListener("click", () => {
+
+    delivery(step1,"Order Packed",2000)
+    .then(() => delivery(step1,"Out for Delivery",3000))
+    .then(() => delivery(step1,"Order Arriving",1000))
+    .then(() => delivery(step1,"Order Delivered",2000))
+    .catch((e) => console.log(e));
+
+});
+
+function delivery(element,status,time){
+
+    return new Promise((resolve,reject)=>{
+
+        if(element){
+            setTimeout(()=>{
+                element.innerHTML = status;
+                resolve();
+            },time);
+        }
+        else{
+            reject(new Error("Element does not exist"));
+        }
+
+    });
+
+}
+
+</script>
+    
+    <!-- <h1 id="head1">Heading 1</h1>
+    <h2 id="head2">Heading 2</h2>
+    <h3 id="head3">Heading 3</h3>
+    <button id="btn1">Change color</button>
+
+    <script>
+        let heading1 = documentt.getElementById("head1");
+        let heading2 = document.getElementById("head2");
+        let heading3 = document.getElementById("head3");
+
+        let button1 = document.getElementById("btn1");
+
+        button1.addEventListener("click", () => {
+            changeColor(heading1, "green", 1000)
+            .then(() => changeColor(heading2, "orange", 1000))
+            .then(() => changeColor(heading3, "yellow", 1000))
+            .catch((e) => console.log(e));
+        });
+
+        function changeColor(element, color, time) {
+            return new Promise((resolve, reject) => {
+                if (element) {
+                    setTimeout(() => {
+                        element.style.color = color;
+                        resolve();
+                    }, time);
+                } else {
+                    reject(new Error("Element doesn't exist"));
+                }
+            });
+        }
+    </script> -->
+
+    <!-- <script>
+        let promise = new Promise((resolve,reject)=>{
+            let randomNum = Math.random();
+            if(randomNum>0.5){
+                resolve(randomNum);
+            }
+            else{
+                reject(new Error("The number is less than 0.5"));
+            }
+        })
+
+        promise.then((num)=>{
+            console.log("The random number is ",num);
+        })
+        .cathch((e)=>{
+            console.log(err);
+        })
+        .finally(()=>{
+            console.log("Task is Completed");
+        })
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: aqua; width: 300px; height: 300px;" onmouseout="countfunc()">
+    <img src="moon.jpg" alt="" width="200" height="200"
+    style="border: 7px solid rgb(169, 192, 56);"  onmouseup="countfunc()">
+    </div>
+    <p id="para">Text</p>
+    <!-- onclick="generateAlert()" -->
+    <!-- ondblclick="generateAlert() -->
+    <!-- onmousedown="generateAlert() -->
+    <!-- onmouseleave="generateAlert() -->
+    <!-- onmouseenter="generateAlert() -->
+    <form action="">
+        <input type="text" id="text1" onkeypress="generateAlert()">
+        <input type="text" id="text2" onkeydown="generateAlert()">
+        <input type="text" id="text3" onkeyup="generateAlert()">
+        <!-- <input type="text" id="text4" placeholder="onfocus" onfocus="changeStyle()"> -->
+        <!-- <input type="text" id="text5" placeholder="onblur" onblur="changeStyle()"> -->
+        <!-- <input type="text" id="text6" placeholder="onchange" onchange="changeStyle()"> -->
+        <input type="text" id="text6" placeholder="onselect" onselect="changeStyle()">
+
+
+    </form>
+    <script>
+        // function changeStyle(){
+        //     document.getElementById("text4").style.backgroundColor="red";
+        // }
+        function changeStyle(){
+            document.getElementById("text6").style.backgroundColor="blue";
+        }
+        
+        function generateAlert(){
+            alert("You clicked on an image");
+        }
+        let c=0;
+        function countfunc(){
+            c+=1;
+            document.getElementById("para").innerHTML=c;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div{
+        background-color: yellowgreen;
+        color: blue;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+    <!-- Node creation and manipulation
+    1. document.createElement(Tag name)
+    2. document.createtextnode("text")
+    3. parentNode.appendchild(Node)
+    3. parentNode.removechild(Node) -->
+
+    <script>
+        let para1 = document.createElement("p");
+        para1.textContent="This is para";
+        document.body.appendChild(para1);
+
+        let tn=document.createTextNode("FrontEnd");
+        document.body.appendChild(tn);
+
+        let div = document.createElement("div");
+        document.body.appendChild(d);
+        
+    </script>
+
+</body>
+</html>
