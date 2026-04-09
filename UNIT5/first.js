@@ -1,0 +1,12 @@
+let age = 20;
+console.log(age);
+let name = "Sanjukta";
+console.log(name);
+let isActive = true;
+console.log(isActive);
+let nums = [3, 4, 5, 6, 7];
+console.log(nums);
+let section = "3m044";
+section = 70;
+console.log(section);
+export {};
