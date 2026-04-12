@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DOM Manipulation & Events Demo</title>
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+background: #e9ecef;
+display: flex;
+justify-content: center;
+padding: 30px;
+}
+
+.container {
+width: 650px;
+background: #f8f9fa;
+padding: 25px;
+border-radius: 12px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+text-align: center;
+margin-bottom: 5px;
+}
+
+.sub {
+text-align: center;
+color: gray;
+margin-bottom: 20px;
+}
+
+.card {
+background: white;
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+border: 1px solid #ddd;
+}
+
+.card h3 {
+margin-bottom: 10px;
+}
+
+input, select {
+width: 100%;
+padding: 10px;
+border-radius: 6px;
+border: 1px solid #ccc;
+margin-top: 5px;
+}
+
+.output-box {
+background: #e9ecef;
+padding: 12px;
+border-radius: 8px;
+margin-top: 10px;
+}
+
+.btn-group {
+display: flex;
+gap: 10px;
+margin-top: 10px;
+}
+
+button {
+flex: 1;
+padding: 10px;
+border: none;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+background: linear-gradient(90deg, #7b2ff7, #9d4edd);
+}
+
+.task-row {
+display: flex;
+gap: 10px;
+margin-top: 10px;
+}
+
+.task-row input {
+flex: 2;
+}
+
+.task-row button {
+flex: 1;
+}
+
+.task {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #e9ecef;
+padding: 10px;
+border-radius: 8px;
+margin-top: 10px;
+}
+
+.task.completed span {
+text-decoration: line-through;
+opacity: 0.6;
+}
+
+.task-buttons button {
+padding: 5px 10px;
+margin-left: 5px;
+}
+
+.complete {
+background: #28a745;
+}
+
+.delete {
+background: #dc3545;
+}
+
+.stats {
+margin-top: 10px;
+font-size: 14px;
+color: #555;
+}
+
+
+.dark {
+background: #0f1115 !important;
+color: #ffffff !important;
+}
+
+.dark .container {
+background: #1a1d24;
+}
+
+.dark .card {
+background: #22252f;
+border: 1px solid #333;
+}
+
+.dark input,
+.dark select {
+background: #2c2f3a;
+color: white;
+border: 1px solid #444;
+}
+
+.dark .output-box {
+background: #2c2f3a;
+color: #ddd;
+}
+
+.dark .task {
+background: #2c2f3a;
+}
+
+.dark .stats,
+.dark .sub {
+color: #aaa;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+<h1>DOM Manipulation & Events Demo</h1>
+<p class="sub">Interactive webpage using JavaScript events and real-time updates</p>
+
+
+<div class="card">
+    <h3>1. Type Your Name</h3>
+    <input id="nameInput" placeholder="Enter your name">
+    <div class="output-box">
+    <p id="greet">Hello,👋</p>
+    <p id="count">Character Count: 0</p>
+    </div>
+</div>
+
+
+<div class="card">
+    <h3>2. Choose a Theme Accent</h3>
+    <select id="theme">
+    <option value="#7b2ff7">Purple</option>
+    <option value="#007bff">Blue</option>
+    <option value="#28a745">Green</option>
+    </select>
+
+    <div class="btn-group">
+    <button id="darkBtn">Toggle Dark Mode</button>
+    <button id="msgBtn">Surprise Message</button>
+    </div>
+
+    <div class="output-box" id="msgBox">
+    Events make web pages interactive and powerful.
+    </div>
+</div>
+
+
+<div class="card">
+    <h3>3. Add a Task</h3>
+
+    <div class="task-row">
+    <input id="taskInput" placeholder="Enter a task">
+    <button id="addTask">Add Task</button>
+    </div>
+
+    <select id="filter">
+    <option value="all">Show All</option>
+    <option value="completed">Completed</option>
+    <option value="pending">Pending</option>
+    </select>
+
+    <div id="taskList"></div>
+    <div class="stats" id="stats"></div>
+</div>
+
+<p style="text-align:center; font-size:12px; color:gray;">
+    This project demonstrates DOM selection, events, validation, dynamic updates, and event delegation.
+</p>
+</div>
+
+<script>
+const nameInput = document.getElementById("nameInput");
+const greet = document.getElementById("greet");
+const count = document.getElementById("count");
+
+nameInput.addEventListener("input", () => {
+greet.textContent = `Hello, ${nameInput.value} 👋`;
+count.textContent = `Character Count: ${nameInput.value.length}`;
+});
+
+
+const theme = document.getElementById("theme");
+
+theme.addEventListener("change", () => {
+document.querySelectorAll("button").forEach(btn => {
+    btn.style.background = theme.value;
+});
+});
+
+
+document.getElementById("darkBtn").onclick = () => {
+document.body.classList.toggle("dark");
+};
+
+
+document.getElementById("msgBtn").onclick = () => {
+document.getElementById("msgBox").textContent =
+    "Events make web pages interactive and powerful.";
+};
+
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+const stats = document.getElementById("stats");
+const filter = document.getElementById("filter");
+
+let tasks = [];
+
+document.getElementById("addTask").onclick = () => {
+if (!taskInput.value.trim()) return;
+
+tasks.push({ text: taskInput.value, done: false });
+taskInput.value = "";
+render();
+};
+
+function render() {
+taskList.innerHTML = "";
+
+let filtered = tasks;
+if (filter.value === "completed") filtered = tasks.filter(t => t.done);
+if (filter.value === "pending") filtered = tasks.filter(t => !t.done);
+
+filtered.forEach((task, i) => {
+    const div = document.createElement("div");
+    div.className = "task" + (task.done ? " completed" : "");
+
+    div.innerHTML = `
+    <span>${task.text}</span>
+    <div class="task-buttons">
+        <button class="complete" onclick="toggle(${i})">Complete</button>
+        <button class="delete" onclick="removeTask(${i})">Delete</button>
+    </div>
+    `;
+
+    taskList.appendChild(div);
+});
+
+updateStats();
+}
+
+function toggle(i) {
+tasks[i].done = !tasks[i].done;
+render();
+}
+
+function removeTask(i) {
+tasks.splice(i, 1);
+render();
+}
+
+filter.onchange = render;
+
+function updateStats() {
+const total = tasks.length;
+const completed = tasks.filter(t => t.done).length;
+const remaining = total - completed;
+
+stats.textContent = `Total: ${total} | Completed: ${completed} | Remaining: ${remaining}`;
+}
+</script>
+
+</body>
+</html>
