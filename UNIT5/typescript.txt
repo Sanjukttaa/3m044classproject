@@ -1,0 +1,13 @@
+TS= gives error at compile time
+TS= developed by Microsoft
+
+first.ts
+tsc first.ts
+first.js
+
+Type Aliasing:
+
+Interface:
+1.works with union and Intersection
+2.generally works class
+3.involves extends and implements
