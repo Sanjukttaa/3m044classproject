@@ -11,3 +11,13 @@ Interface:
 1.works with union and Intersection
 2.generally works class
 3.involves extends and implements
+
+Interface:
+1. Interface creates structure only for objects.
+2. extends, implements
+3. two name interface can be merge
+
+Typescript:
+1. Typescript creates structure for objects, primitive data types and
+2. union , Intersection
+3. two same name interface can't be merge

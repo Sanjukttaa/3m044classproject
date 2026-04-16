@@ -98,3 +98,33 @@ let student:stuCombine={
     pin:735101,
 
 }
+
+type age=number;
+let personAge:age = 60;
+console.log(personAge);
+
+type name1 = string;
+let personName:name1 = "aman";
+console.log(personName);
+
+type status = "success" |"Failure";
+const newStatus:status="success";
+console.log(newStatus);
+
+
+type grade = "A"|"B"|"C";
+let stuGrade:grade="B";
+console.log(stuGrade);
+
+function updateStatus(n:string|number){
+    if(typeof n=="string"){
+        return n.toUpperCase();
+    }else if(typeof n=="number"){
+        return n*3;
+    }else{
+        return "Error";
+    }
+}
+console.log(updateStatus(5));
+
+

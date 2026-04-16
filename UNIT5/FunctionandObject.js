@@ -55,4 +55,24 @@ let student = {
     city: "Jalpaiguri",
     pin: 735101,
 };
+let personAge = 60;
+console.log(personAge);
+let personName = "aman";
+console.log(personName);
+const newStatus = "success";
+console.log(newStatus);
+let stuGrade = "B";
+console.log(stuGrade);
+function updateStatus(n) {
+    if (typeof n == "string") {
+        return n.toUpperCase();
+    }
+    else if (typeof n == "number") {
+        return n * 3;
+    }
+    else {
+        return "Error";
+    }
+}
+console.log(updateStatus(5));
 export {};
