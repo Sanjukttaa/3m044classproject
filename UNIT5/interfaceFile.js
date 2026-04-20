@@ -1,3 +1,4 @@
+export {};
 let laptopObject = {
     lid: 1,
     brand: "Asus",
@@ -36,4 +37,4 @@ class Laptopclass {
 }
 let u = new Laptopclass(1111, "Asus", "Silver", "256gb", "16gb");
 u.info();
-export {};
+//# sourceMappingURL=interfaceFile.js.map

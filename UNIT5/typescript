@@ -1,6 +1,0 @@
-TS= gives error at compile time
-TS= developed by Microsoft
-
-first.ts
-tsc first.ts
-first.js

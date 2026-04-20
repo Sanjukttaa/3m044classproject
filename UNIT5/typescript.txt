@@ -15,9 +15,20 @@ Interface:
 Interface:
 1. Interface creates structure only for objects.
 2. extends, implements
-3. two name interface can be merge
+3. two same name interface can be merge
 
 Typescript:
 1. Typescript creates structure for objects, primitive data types and
 2. union , Intersection
 3. two same name interface can't be merge
+
+
+Type Narrowing: Reducing a broad type into a more specific type based on condition.
+Narrowing types:
+1. typeof Narrowing
+2. Instanceof Narrowing
+3. Truthiness Narrowing
+4. in operator Narrowing
+
+tsc --watch: will see the changes automatically that you will make to your code
+tsc : will complie all file together

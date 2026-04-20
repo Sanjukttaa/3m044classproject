@@ -1,3 +1,4 @@
+export {}; //This will make the file local
 let age = 20;
 console.log(age);
 let name = "Sanjukta";
@@ -21,6 +22,6 @@ let arraystr1;
 arraystr1 = ["1", "s"];
 console.log(arraystr1);
 for (let i = 0; i < arraystr1.length; i++) {
-    console.log(arraystr1[i]);
+    console.log(i + " " + arraystr1[i]);
 }
-export {};
+//# sourceMappingURL=first.js.map

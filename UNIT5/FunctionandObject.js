@@ -1,3 +1,4 @@
+export {};
 function greet() {
     console.log("Front End");
 }
@@ -75,4 +76,4 @@ function updateStatus(n) {
     }
 }
 console.log(updateStatus(5));
-export {};
+//# sourceMappingURL=FunctionandObject.js.map
