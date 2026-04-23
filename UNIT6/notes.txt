@@ -1,0 +1,2 @@
+data model: data model defines how data should look in a application.
+type API
