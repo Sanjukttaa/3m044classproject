@@ -1,2 +1,11 @@
 data model: data model defines how data should look in a application.
 type API
+
+Testing fundamentals:
+Popular Testing Frameworks
+🧪 Jest (Most common):
+Works well with TypeScript
+Easy setup
+Built-in assertions & mocking
+
+npm test
